@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PagesController::class, 'root'])->name('root');
 
 Auth::routes(['verify' => true]);
+
+Route::resource('users', UsersController::class, ['only' => ['show', 'update', 'edit']]);
