@@ -31,11 +31,18 @@
             {{ Auth::user()->name }}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a href="{{ route('users.show', Auth::id()) }}" class="dropdown-item">個人中心</a>
-            <a href="{{ route('users.edit', Auth::id()) }}" class="dropdown-item">編輯資料</a>
+            <a href="{{ route('users.show', Auth::id()) }}" class="dropdown-item">
+              <i class="far fa-user mr-2"></i>
+              個人中心
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="{{ route('users.edit', Auth::id()) }}" class="dropdown-item">
+              <i class="far fa-edit mr-2"></i>
+              編輯資料
+            </a>
             <div class="dropdown-divider"></div>
             <a href="#" class="dropdown-item" id="logout">
-              <form action="{{ route('logout') }}" method="post">
+              <form action="{{ route('logout') }}" method="post" onsubmit="return confirm('您確定要登出嗎？')">
                 @csrf
                 <button class="btn btn-block btn-danger" type="submit" name="button">登出</button>
               </form>

@@ -26,7 +26,11 @@
       {{-- 用戶發布的內容 --}}
       <div class="card">
         <div class="card-body">
-          暫無內容 ~_~
+          <ul class="nav nav-tabs">
+            <li class="nav-item"><a href="#" class="nav-link active bg-transparent">他的話題</a></li>
+            <li class="nav-item"><a href="" class="nav-link">他的回覆</a></li>
+          </ul>
+          @include('users._topics', ['topics' => $user->topics()->recent()->paginate(5)]);
         </div>
       </div>
     </div>
